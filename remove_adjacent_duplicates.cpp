@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-    string s = "azxxzy";
+    string s = "abbaca";
     int i = 0;
 
     while (i < s.size()) {
