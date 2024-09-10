@@ -1,0 +1,37 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "workbench.colorTheme": "Andromeda Italic Bordered",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.tree.enableStickyScroll": true,
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#026CD1",
+    "titleBar.activeForeground": "#FFFFFF"
+  },
+  "editor.fontFamily": "'Fira Code', Consolas",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.fixAll.eslint": "always",
+    "source.organizeImports": "always"
+  },
+  "cSpell.words": [
+    "Challan",
+    "fgproductid",
+    "Jerp",
+    "productdtl",
+    "requisitionid",
+    "requisitioninfo",
+    "requisitionno"
+  ],
+  "files.associations": {
+    "ostream": "cpp"
+  }
+}

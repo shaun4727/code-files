@@ -31,6 +31,21 @@ void insertAtBeg(int value){
 
 }
 
+void addAtPosition(int pos,int val){
+    struct node *temp = head;
+    struct node *newNode = (struct node*)malloc(sizeof(struct node*));
+
+    newNode->data = val;
+    newNode->next = NULL;
+    while(pos--){
+        temp = temp->next;
+    }
+    struct node *ptr = temp->next;
+
+    temp->next = newNode;
+    newNode->next = ptr;
+}
+
 void print(){
     struct node *temp = head;
     while(temp){
@@ -45,6 +60,7 @@ int main(){
     insert(3);
     insert(4);
     insertAtBeg(0);
+    addAtPosition(2,6);
     print();
 
     return 0;

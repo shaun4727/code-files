@@ -6,6 +6,10 @@ public:
     int data;
     Node* next;
 
+    Node() {
+        this->data = 0;
+        this->next = NULL;
+    }
     Node(int data) {
         this->data = data;
         this->next = NULL;
@@ -14,17 +18,32 @@ public:
 
 class Linkedlist {
     Node* head;
-
 public:
     Linkedlist() {
         head = NULL;
     }
 
-    void insertNode(int);
-    void printAll();
+    void InsertNode(int);
+    void PrintList();
+    Node* MidPointFind();
+    void DeleteNode(int);
 };
 
-void Linkedlist::insertNode(int data) {
+Node* Linkedlist::MidPointFind() {
+    Node* slow = head, * fast = head->next;
+
+    while (slow && fast && fast->next) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    if (fast) {
+        return slow->next;
+    }
+    return slow;
+}
+
+void Linkedlist::InsertNode(int data) {
+
     Node* newNode = new Node(data);
 
     if (head == NULL) {
@@ -39,30 +58,46 @@ void Linkedlist::insertNode(int data) {
     temp->next = newNode;
 }
 
-void Linkedlist::printAll() {
-    if (head == NULL) {
+void Linkedlist::PrintList() {
+    Node* temp = head;
+    if (temp == NULL) {
         cout << "list is empty";
     }
-
-    Node* temp = head;
     while (temp) {
         cout << temp->data << endl;
-
         temp = temp->next;
     }
 }
 
+void Linkedlist::DeleteNode(int k) {
+    Node* forw = head, * back = head;
+
+    while (k--) {
+        forw = forw->next;
+    }
+
+    while (forw->next) {
+        forw = forw->next;
+        back = back->next;
+    }
+    // cout << back->data;
+    back->next = back->next->next;
+}
+
 int main() {
-
-
     Linkedlist list;
+    list.InsertNode(1);
+    list.InsertNode(2);
+    list.InsertNode(3);
+    list.InsertNode(4);
+    list.InsertNode(5);
+    list.InsertNode(6);
 
-    list.insertNode(1);
-    list.insertNode(2);
-    list.insertNode(3);
-    list.insertNode(4);
+    // list.PrintList();
 
-    list.printAll();
+    // cout << list.MidPointFind()->data;
 
+    list.DeleteNode(6);
+    list.PrintList();
     return 0;
 }
